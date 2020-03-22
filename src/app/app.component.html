@@ -1,0 +1,130 @@
+<app-header></app-header>
+<div class="container-fluid">
+  <div class="p-5">
+    <div class="row">
+      <div class="col-sm-8">
+        <h1> Users List </h1>
+
+        <table class="table table-bordered table-striped">
+          <thead>
+            <tr class="user-table-heading">
+              <th>Full Name</th>
+              <th>Date Of Birth</th>
+              <th>Languages</th>
+              <th>Gender</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let detail of userDetails">
+              <td>{{detail.fullName}}</td>
+              <td>{{detail.dob  | date : 'longDate'}}</td>
+              <td>{{detail.languages}}</td>
+              <td>{{detail.gender}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="col-sm-4">
+        <div class="user-progress-section">
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addUserModal"
+            (click)="onClick($event)">Add User</button>
+          <div class="count-section">
+
+            <h5>List Progress</h5>
+            <div class="progress">
+              <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" aria-valuenow="4"
+                aria-valuemin="0" aria-valuemax="10" [ngStyle]="{width: userDetailsCount + ''}">
+                {{userDetailsCount}}
+              </div>
+            </div>
+          </div>
+          <div class="count-section">
+            <h1> Male</h1>
+            <h1>{{maleCount}}</h1>
+          </div>
+          <div class="count-section">
+
+            <h1> Feamle </h1>
+            <h1>{{femaleCount}}</h1>
+          </div>
+        </div>
+      </div>
+
+      <!-- The Modal -->
+
+      <div class="modal" id="addUserModal" [style.display]="showModal ? 'block' : 'none'">
+        <div class="modal-dialog">
+          <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+              <h4 class="modal-title">Add User</h4>
+              <button type="button" class="close" data-dismiss="modal" (click)="onClose($event)">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+
+              <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+                <div class="form-group">
+                  <label for="name">Full Name:</label>
+                  <input type="text" class="form-control" id="name" formControlName="name" required>
+                </div>
+                <div class="form-group">
+                  <label for="price">Date Of Birth:</label>
+                  <div class="input-group">
+                    <input class="form-control" placeholder="YYYY-MM-DD" name="dp" formControlName="dateOfBirth"
+                      ngbDatepicker #d="ngbDatepicker">
+                    <div class="input-group-append">
+                      <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"><i
+                          class="fa fa-calendar" aria-hidden="true"></i>
+                      </button>
+                    </div>
+                    <!-- <input type="number" class="form-control" id="price" formControlName="price" required> -->
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="desc">Languages:</label>
+                  <angular2-multiselect [data]="dropdownList" formControlName="multiplelanguages"
+                    [settings]="dropdownSettings" (onSelect)="onItemSelect($event)"
+                    (onDeSelect)="OnItemDeSelect($event)" (onSelectAll)="onSelectAll($event)"
+                    (onDeSelectAll)="onDeSelectAll($event)">
+                  </angular2-multiselect>
+                </div>
+                <div class="form-group">
+                  <label for="desc">Gender: </label><br />
+                  <div class="form-check-inline">
+                    <label class="form-check-label">
+                      <input type="radio" class="form-check-input" formControlName="userGender" value="Male">Male
+                    </label>
+                  </div>
+
+                  <div class="form-check-inline">
+                    <label class="form-check-label">
+                      <input type="radio" class="form-check-input" formControlName="userGender" value="Female">Female
+                    </label>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="comment">About:</label>
+                  <textarea class="form-control" rows="5" id="comment" name="text"
+                    formControlName="userInfo"></textarea>
+                </div>
+              </form>
+            </div>
+
+            <!-- Modal footer (change)="filterForeCasts($event.target.value)" -->
+            <div class="modal-footer">
+              <button type="button" class="btn btn-success" (click)="onSaveUser($event)">Save User</button>
+
+              <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="onClose($event)">Close</button>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <!---->
+    </div>
+  </div>
+</div>
+<router-outlet></router-outlet>

@@ -1,0 +1,28 @@
+.sidenav {
+    height: 100%;
+    width: auto;
+    position: fixed;
+    z-index: 1;
+    background-color: #111;
+  }
+  .user-table-heading{
+    background-color: #007bff;
+    color:#fff;
+  }
+  table{
+      text-align: center;
+  }
+  tbody {
+    grid-area: body-scrollable;
+    overflow: auto;
+    height: 100px
+  }
+  .progress{
+      height: 30px;
+  }
+  .user-progress-section{
+      text-align: center;
+  }
+  .count-section{
+      margin: 15px 0px;
+  }

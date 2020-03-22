@@ -1,0 +1,26 @@
+[
+    {
+        "fullName": "Richard Lovelace",
+        "dob": "12/10/1985",
+        "languages": "Sapnish, Latin",
+        "gender": "Male"
+    },
+    {
+        "fullName": "Grace Hopper",
+        "dob": "12/9/1906",
+        "languages": "English(UK)",
+        "gender": "Feamle"
+    },
+    {
+        "fullName": "Richard Lovelace",
+        "dob": "08/17/1936",
+        "languages": "English(US), French",
+        "gender": "Female"
+    },
+    {
+        "fullName": "Glenn Clarke",
+        "dob": "06/24/1917",
+        "languages": "German, French, Latin",
+        "gender": "Male"
+    }
+]
