@@ -126,6 +126,7 @@
           }
         }
       }
-    }},
+    }
+  },
   "defaultProject": "add-user"
 }

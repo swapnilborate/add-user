@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
 import { AngularMultiSelectModule } from 'angular2-multiselect-dropdown';
 
@@ -23,9 +22,7 @@ import { AddUserComponent } from './add-user/add-user.component';
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    NgbModule,
     FormsModule,
-    AngularMultiSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

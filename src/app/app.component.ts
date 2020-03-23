@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
-import { Validators } from '@angular/forms';
+import { Component, OnInit, HostListener, ViewChild } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
+import {  } from '@angular/forms';
 import { UserService } from '../app/services/user.service';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -13,16 +14,17 @@ export class AppComponent implements OnInit {
   showModal : boolean;
   languages : any;
   dropdownList = [];
-    selectedItems = [];
-    dropdownSettings = {};
-    multiplelanguages: any;
-  capacity : any;
+  selectedItems = [];
+  dropdownSettings = {};
+  multiplelanguages: any;
+ 
   genderCount : any;
   maleGenderCount = [];
   femaleGenderCount = [];
   maleCount : any;
   femaleCount : any;
   userDetailsCount : any;
+
   
   userForm = this.fb.group({
     name: ['', Validators.required],
@@ -118,12 +120,6 @@ onDeSelectAll(items: any){
 }
 onSaveUser(event){
   console.log(this.userForm.value);
-  const month = this.userForm.value.dateOfBirth.month;
-  const day = this.userForm.value.dateOfBirth.day;
-  const year = this.userForm.value.dateOfBirth.year;
-   
-  const dob = month+"/"+day+"/"+year;
-  console.log(dob);
   let objValue = [];
   this.userForm.value.multiplelanguages.forEach(obj => {
     console.log(obj.itemName);
@@ -135,7 +131,7 @@ onSaveUser(event){
   console.log(languages);
   let details = {
         "fullName": this.userForm.value.name,
-        "dob": dob,
+        "dob": this.userForm.value.dateOfBirth,
         "languages": languages,
         "gender": this.userForm.value.userGender,
         "about": this.userForm.value.userInfo,
