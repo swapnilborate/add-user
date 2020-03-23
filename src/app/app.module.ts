@@ -23,6 +23,7 @@ import { AddUserComponent } from './add-user/add-user.component';
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
+    AngularMultiSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]
